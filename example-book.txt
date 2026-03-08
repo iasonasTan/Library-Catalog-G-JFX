@@ -1,0 +1,4 @@
+[Book Title]
+[Book Writer]
+[Id]
+[Pages Count]
