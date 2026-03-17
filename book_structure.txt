@@ -1,0 +1,7 @@
+Books are just files in the given directory.
+
+The contents of the file must be these with this order:
+[Book Title]
+[Book Writer]
+[Id]
+[Pages Count]

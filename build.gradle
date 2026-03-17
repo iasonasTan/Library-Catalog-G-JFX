@@ -17,7 +17,7 @@ application {
   applicationDefaultJvmArgs = ["--enable-native-access=javafx.graphics"]
 }
 
-def books_path = file('.path').text.trim()
+def books_path = file('.books');
 println("Giving program argument: "+books_path);
 
 run {

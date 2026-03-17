@@ -7,13 +7,9 @@ public class Book {
 	private final String mTitle;
     private final String mWriter;
     private final int mPages;
-    private final long mId;
+    private final String mId;
 
-    public Book(String title, long id) {
-        this(title, "unknown", 1, id);
-    }
-
-    public Book(String title, String writer, int pagesCount, long id) {
+    public Book(String title, String writer, int pagesCount, String id) {
         mTitle = title;
         mWriter = writer;
         mPages = pagesCount;
@@ -32,14 +28,14 @@ public class Book {
         return mPages;
     }
     
-    public long getId() {
+    public String getId() {
         return mId;
     }
 
     @Override
     public String toString() {
         return String.format(
-            "Title: %s, Writer: %s, Id: %d", mTitle, mWriter, mId 
+            "Title: %s, Writer: %s, Id: %s, Pages: %d", mTitle, mWriter, mId, mPages
         );
     }
 

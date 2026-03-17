@@ -35,8 +35,8 @@ public final class BookManager {
         }, consumer);
     }
     
-    public void findById(long id, Consumer<Book> consumer) {
-        asyncSearch(b -> b.getId() == id, consumer);
+    public void findById(String id, Consumer<Book> consumer) {
+        asyncSearch(b -> b.getId().equals(id), consumer);
     }
 
     public void asyncSearch(Function<Book, Boolean> func, Consumer<Book> consumer) {
