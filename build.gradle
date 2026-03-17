@@ -3,6 +3,16 @@ plugins {
   id 'org.openjfx.javafxplugin' version '0.1.0'
 }
 
+task jpackageTask(type: Exec, dependsOn: installDist) {
+  commandLine 'jpackage',
+    '--input', "build/install/${project.name}/lib",
+    '--main-jar', "${project.name}.jar",
+    '--main-class', 'com.libcat.main.Main',
+    '--name', 'LibraryCatalogApp',
+    '--type', 'app-image',
+    '--dest', 'build/package'
+}
+
 repositories {
   mavenCentral();
 }
@@ -14,7 +24,11 @@ javafx {
 
 application {
   mainClass = 'com.libcat.main.Main'
-  applicationDefaultJvmArgs = ["--enable-native-access=javafx.graphics"]
+  applicationDefaultJvmArgs = [
+      "--enable-native-access=ALL-UNNAMED",
+      "--module-path", "lib",
+      "--add-modules", "javafx.controls,javafx.fxml"
+  ]
 }
 
 def books_path = file('.books');
