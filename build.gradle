@@ -11,6 +11,25 @@ task jpackageTask(type: Exec, dependsOn: installDist) {
     '--name', 'LibraryCatalogApp',
     '--type', 'app-image',
     '--dest', 'build/package'
+  
+  commandLine 'echo',
+    'Compiling C runner...'
+  
+  commandLine 'gcc',
+    'LibraryCatalog.c',
+    '-o',
+    "build/install/${project.name}/LibraryCatalog.bin"
+  
+  commandLine 'echo',
+    'Creating zip...'
+  
+  commandLine 'cd',
+    "cd build/install/"
+  
+  commandLine 'zip',
+    '-r',
+    'LibraryCatalogApp.zip',
+    "*"
 }
 
 repositories {
