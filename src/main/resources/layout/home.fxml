@@ -10,7 +10,7 @@
     
     <Label
     	styleClass="title"
-    	text="Hello!" />
+    	text="Search for title, writer or id." />
     
     <TextField
     	promptText="Book name, writer or ID"

@@ -1,6 +1,7 @@
 package com.libcat.controller;
 
-import com.libcat.main.Context;
+import com.fxcontext.main.Context;
+import com.fxcontext.message.Message;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -19,8 +20,12 @@ public class HomeController extends VBox {
 	
 	@FXML
 	public void showResults() {
-		String s = input.getText();
-		context.send("main", s);
+		String keyword = input.getText();
+		Message message = Message.newBuilder()
+				.setAction("change_page")
+				.putExtra("keyword", keyword)
+				.putExtra("page", "results")
+				.build();
+		context.broadcastMessage(message);
 	}
-
 }
